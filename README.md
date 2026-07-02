@@ -1,75 +1,48 @@
-# React + TypeScript + Vite
+# Ride Wars League V2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ride Wars League V2 é um aplicativo web para ciclistas registrarem pedais, participarem de rankings, conquistarem badges e competirem em desafios locais.
 
-Currently, two official plugins are available:
+## Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O objetivo desta versão é reconstruir o projeto do zero, sem Next.js, usando React, TypeScript e Vite, para que a estrutura fique mais simples, didática e controlada.
 
-## React Compiler
+## Stack inicial
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* TypeScript
+* Vite
+* CSS
+* Git/GitHub
 
-## Expanding the ESLint configuration
+## Stack futura
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Supabase
+* React Router
+* Autenticação
+* Painel administrativo
+* Deploy na Vercel
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Escopo do MVP
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Cadastro manual de pedal
+* Link do Strava como comprovante manual
+* Status do pedal: unverified, pending, verified e rejected
+* Ranking simples
+* Badges básicas
+* Painel admin para aprovar ou rejeitar pedais
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Como rodar o projeto localmente
 
-```
+1. Instale as dependências:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Rode o servidor de desenvolvimento:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+npm run dev
 
-```
+3. Abra o endereço exibido no terminal.
+
+## Status do projeto
+
+Sprint 1 em andamento: configuração inicial do projeto, Git, README e estrutura de pastas.
