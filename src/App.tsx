@@ -1,12 +1,22 @@
 function App() {
   return (
-    <main>
-      <h1>Ride Wars League V2</h1>
+    <main className="app-shell">
+      <section className="hero-card">
+        <span className="pixel-badge">V2 MVP</span>
 
-      <p>
-        Um app web para ciclistas registrarem pedais, participarem de rankings,
-        conquistarem badges e competirem em desafios locais.
-      </p>
+        <h1>Ride Wars League</h1>
+
+        <p>
+          Registre seus pedais, dispute rankings, conquiste badges e participe de desafios locais com outros ciclistas.
+        </p>
+
+        <div className="hero-actions">
+          <button type="button">Entrar na liga</button>
+          <button type="button" className="secondary-button">
+            Ver ranking
+          </button>
+        </div>
+      </section>
     </main>
   );
 }

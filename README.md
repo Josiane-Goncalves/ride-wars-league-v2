@@ -1,4 +1,4 @@
-# Ride Wars League V2
+devdevq# Ride Wars League V2
 
 Ride Wars League V2 é um aplicativo web para ciclistas registrarem pedais, participarem de rankings, conquistarem badges e competirem em desafios locais.
 

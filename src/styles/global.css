@@ -1,0 +1,124 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color: #f8fafc;
+  background-color: #111827;
+
+  --color-background: #111827;
+  --color-surface: #1f2937;
+  --color-surface-light: #374151;
+  --color-primary: #22c55e;
+  --color-primary-dark: #15803d;
+  --color-secondary: #38bdf8;
+  --color-warning: #facc15;
+  --color-danger: #ef4444;
+  --color-text: #f8fafc;
+  --color-muted: #9ca3af;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.12), transparent 30%),
+    linear-gradient(225deg, rgba(56, 189, 248, 0.12), transparent 30%),
+    var(--color-background);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.hero-card {
+  width: min(100%, 760px);
+  padding: 48px;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.96), rgba(17, 24, 39, 0.96));
+  box-shadow: var(--shadow-card);
+}
+
+.pixel-badge {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  color: var(--color-warning);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-card h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-card p {
+  max-width: 600px;
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.hero-actions button {
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  background-color: var(--color-primary);
+  color: #052e16;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--color-primary-dark);
+}
+
+.hero-actions button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-primary-dark);
+}
+
+.hero-actions .secondary-button {
+  background-color: var(--color-secondary);
+  color: #082f49;
+  box-shadow: 4px 4px 0 #0369a1;
+}
