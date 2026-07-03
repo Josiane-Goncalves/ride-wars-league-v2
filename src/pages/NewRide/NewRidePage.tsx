@@ -2,6 +2,10 @@ import { useState, type SubmitEvent } from 'react';
 import type { Ride } from '../../types/ride';
 import { mockCyclists } from '../../data/mockCyclists';
 import { isValidStravaActivityUrl } from '../../utils/validateStravaUrl';
+import {
+  getRideStatusClassName,
+  getRideStatusLabel,
+} from '../../utils/rideStatus';
 
 export function NewRidePage() {
   const currentCyclist = mockCyclists[0];
@@ -79,8 +83,9 @@ export function NewRidePage() {
       <h1>Cadastrar Pedal</h1>
 
       <p>
-        Registre manualmente seu pedal. O link do Strava será usado apenas como
-        comprovante para aprovação futura.
+        Registre manualmente seu pedal. Se informar um link válido do Strava, ele
+        ficará aguardando aprovação. Sem link, o pedal será salvo como sem
+        comprovação.
       </p>
 
       <form className="ride-form" onSubmit={handleSubmit}>
@@ -170,8 +175,8 @@ export function NewRidePage() {
                 </span>
               </div>
 
-              <span className={`ride-status ride-status-${ride.status}`}>
-                {ride.status}
+              <span className={getRideStatusClassName(ride.status)}>
+                {getRideStatusLabel(ride.status)}
               </span>
             </article>
           ))}
