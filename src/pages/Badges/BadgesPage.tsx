@@ -1,29 +1,7 @@
-import type { Badge, Ride } from '../../types/ride';
 import { mockBadges } from '../../data/mockBadges';
 import { mockCyclists } from '../../data/mockCyclists';
 import { mockRides } from '../../data/mockRides';
-
-function checkBadgeUnlocked(badge: Badge, rides: Ride[]) {
-  const verifiedRides = rides.filter((ride) => ride.status === 'verified');
-
-  if (badge.rule === 'first_ride') {
-    return verifiedRides.length >= badge.requiredValue;
-  }
-
-  if (badge.rule === 'distance_single_ride') {
-    return verifiedRides.some(
-      (ride) => ride.distanceKm >= badge.requiredValue,
-    );
-  }
-
-  if (badge.rule === 'elevation_single_ride') {
-    return verifiedRides.some(
-      (ride) => ride.elevationGainM >= badge.requiredValue,
-    );
-  }
-
-  return false;
-}
+import { checkBadgeUnlocked } from '../../utils/checkBadgeUnlocked';
 
 export function BadgesPage() {
   const currentCyclist = mockCyclists[0];
@@ -43,7 +21,7 @@ export function BadgesPage() {
       <h1>Conquistas</h1>
 
       <p>
-        Ciclista atual: <strong>{currentCyclist.name}</strong>
+        Atleta atual: <strong>{currentCyclist.name}</strong>
       </p>
 
       <div className="badge-summary">
@@ -59,7 +37,9 @@ export function BadgesPage() {
 
           return (
             <article
-              className={`badge-card ${isUnlocked ? 'badge-card-unlocked' : 'badge-card-locked'}`}
+              className={`badge-card ${
+                isUnlocked ? 'badge-card-unlocked' : 'badge-card-locked'
+              }`}
               key={badge.id}
             >
               <span className="badge-icon">{badge.icon}</span>
