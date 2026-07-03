@@ -393,3 +393,15 @@ a {
     flex-direction: column;
   }
 }
+
+.duration-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 760px) {
+  .duration-fields {
+    grid-template-columns: 1fr;
+  }
+}

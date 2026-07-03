@@ -9,18 +9,42 @@ export function NewRidePage() {
   const [title, setTitle] = useState('');
   const [distanceKm, setDistanceKm] = useState('');
   const [elevationGainM, setElevationGainM] = useState('');
+  const [durationHours, setDurationHours] = useState('');
   const [durationMinutes, setDurationMinutes] = useState('');
   const [stravaUrl, setStravaUrl] = useState('');
   const [submittedRides, setSubmittedRides] = useState<Ride[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
+
+  function formatDuration(totalMinutes: number) {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    if (hours === 0) {
+      return `${minutes} min`;
+    }
+
+    if (minutes === 0) {
+      return `${hours}h`;
+    }
+
+    return `${hours}h ${minutes}min`;
+  }
 
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setErrorMessage('');
 
-    if (!title || !distanceKm || !elevationGainM || !durationMinutes) {
+    const totalDurationMinutes =
+      Number(durationHours || 0) * 60 + Number(durationMinutes || 0);
+
+    if (!title || !distanceKm || !elevationGainM) {
       setErrorMessage('Preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    if (totalDurationMinutes <= 0) {
+      setErrorMessage('Informe a duração do pedal.');
       return;
     }
 
@@ -32,7 +56,7 @@ export function NewRidePage() {
       title,
       distanceKm: Number(distanceKm),
       elevationGainM: Number(elevationGainM),
-      durationMinutes: Number(durationMinutes),
+      durationMinutes: totalDurationMinutes,
       stravaUrl: stravaUrl || undefined,
       status: hasValidStravaUrl ? 'pending' : 'unverified',
       createdAt: new Date().toISOString(),
@@ -43,6 +67,7 @@ export function NewRidePage() {
     setTitle('');
     setDistanceKm('');
     setElevationGainM('');
+    setDurationHours('');
     setDurationMinutes('');
     setStravaUrl('');
   }
@@ -91,16 +116,30 @@ export function NewRidePage() {
           />
         </label>
 
-        <label>
-          Duração em minutos *
-          <input
-            type="number"
-            value={durationMinutes}
-            onChange={(event) => setDurationMinutes(event.target.value)}
-            placeholder="Ex: 135"
-            min="1"
-          />
-        </label>
+        <div className="duration-fields">
+          <label>
+            Horas
+            <input
+              type="number"
+              value={durationHours}
+              onChange={(event) => setDurationHours(event.target.value)}
+              placeholder="Ex: 2"
+              min="0"
+            />
+          </label>
+
+          <label>
+            Minutos
+            <input
+              type="number"
+              value={durationMinutes}
+              onChange={(event) => setDurationMinutes(event.target.value)}
+              placeholder="Ex: 15"
+              min="0"
+              max="59"
+            />
+          </label>
+        </div>
 
         <label>
           Link do Strava
@@ -127,7 +166,7 @@ export function NewRidePage() {
                 <strong>{ride.title}</strong>
                 <span>
                   {ride.distanceKm} km • {ride.elevationGainM} m •{' '}
-                  {ride.durationMinutes} min
+                  {formatDuration(ride.durationMinutes)}
                 </span>
               </div>
 
