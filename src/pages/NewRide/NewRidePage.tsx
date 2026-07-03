@@ -1,11 +1,12 @@
-import { useState, type SubmitEvent } from 'react';
-import type { Ride } from '../../types/ride';
+import { useState, type ComponentProps } from 'react';
+import { RideCard } from '../../components/rides/RideCard';
 import { mockCyclists } from '../../data/mockCyclists';
+import type { Ride } from '../../types/ride';
 import { isValidStravaActivityUrl } from '../../utils/validateStravaUrl';
-import {
-  getRideStatusClassName,
-  getRideStatusLabel,
-} from '../../utils/rideStatus';
+
+type FormSubmitEvent = Parameters<
+  NonNullable<ComponentProps<'form'>['onSubmit']>
+>[0];
 
 export function NewRidePage() {
   const currentCyclist = mockCyclists[0];
@@ -19,22 +20,7 @@ export function NewRidePage() {
   const [submittedRides, setSubmittedRides] = useState<Ride[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
 
-  function formatDuration(totalMinutes: number) {
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
-
-    if (hours === 0) {
-      return `${minutes} min`;
-    }
-
-    if (minutes === 0) {
-      return `${hours}h`;
-    }
-
-    return `${hours}h ${minutes}min`;
-  }
-
-  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormSubmitEvent) {
     event.preventDefault();
 
     setErrorMessage('');
@@ -166,19 +152,7 @@ export function NewRidePage() {
           <h2>Pedais enviados nesta sessão</h2>
 
           {submittedRides.map((ride) => (
-            <article className="submitted-ride-card" key={ride.id}>
-              <div>
-                <strong>{ride.title}</strong>
-                <span>
-                  {ride.distanceKm} km • {ride.elevationGainM} m •{' '}
-                  {formatDuration(ride.durationMinutes)}
-                </span>
-              </div>
-
-              <span className={getRideStatusClassName(ride.status)}>
-                {getRideStatusLabel(ride.status)}
-              </span>
-            </article>
+            <RideCard ride={ride} key={ride.id} />
           ))}
         </div>
       )}
