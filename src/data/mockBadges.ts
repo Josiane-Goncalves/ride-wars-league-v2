@@ -3,15 +3,15 @@ import type { Badge } from '../types/ride';
 export const mockBadges: Badge[] = [
   {
     id: 'badge-1',
-    name: 'Primeiro Pedal',
+    name: 'Primeiro Giro',
     description: 'Registrou o primeiro pedal verificado na liga.',
-    icon: '🚴‍♀️',
+    icon: '🚴',
     rule: 'first_ride',
     requiredValue: 1,
   },
   {
     id: 'badge-2',
-    name: 'Guerreira dos 30K',
+    name: 'Ritmo 30K',
     description: 'Completou um pedal verificado de pelo menos 30 km.',
     icon: '⚔️',
     rule: 'distance_single_ride',
