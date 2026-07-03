@@ -1,0 +1,46 @@
+import type { Ride } from '../types/ride';
+
+export const mockRides: Ride[] = [
+  {
+    id: 'ride-1',
+    cyclistId: 'cyclist-1',
+    title: 'Pedal da manhã',
+    distanceKm: 39,
+    elevationGainM: 420,
+    durationMinutes: 135,
+    stravaUrl: 'https://www.strava.com/activities/example-1',
+    status: 'verified',
+    createdAt: '2026-07-01',
+  },
+  {
+    id: 'ride-2',
+    cyclistId: 'cyclist-2',
+    title: 'Giro leve no bairro',
+    distanceKm: 22,
+    elevationGainM: 180,
+    durationMinutes: 80,
+    stravaUrl: 'https://www.strava.com/activities/example-2',
+    status: 'pending',
+    createdAt: '2026-07-02',
+  },
+  {
+    id: 'ride-3',
+    cyclistId: 'cyclist-3',
+    title: 'Treino de subida',
+    distanceKm: 31,
+    elevationGainM: 690,
+    durationMinutes: 150,
+    status: 'verified',
+    createdAt: '2026-07-03',
+  },
+  {
+    id: 'ride-4',
+    cyclistId: 'cyclist-1',
+    title: 'Pedal sem comprovação',
+    distanceKm: 18,
+    elevationGainM: 90,
+    durationMinutes: 60,
+    status: 'unverified',
+    createdAt: '2026-07-03',
+  },
+];
