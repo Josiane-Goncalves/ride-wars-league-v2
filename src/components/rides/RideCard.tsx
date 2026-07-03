@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { Ride } from '../../types/ride';
 import { formatDuration } from '../../utils/formatDuration';
 import {
@@ -7,9 +8,10 @@ import {
 
 type RideCardProps = {
   ride: Ride;
+  children?: ReactNode;
 };
 
-export function RideCard({ ride }: RideCardProps) {
+export function RideCard({ ride, children }: RideCardProps) {
   return (
     <article className="submitted-ride-card">
       <div>
@@ -21,9 +23,13 @@ export function RideCard({ ride }: RideCardProps) {
         </span>
       </div>
 
-      <span className={getRideStatusClassName(ride.status)}>
-        {getRideStatusLabel(ride.status)}
-      </span>
+      <div className="ride-card-side">
+        <span className={getRideStatusClassName(ride.status)}>
+          {getRideStatusLabel(ride.status)}
+        </span>
+
+        {children && <div className="ride-card-actions">{children}</div>}
+      </div>
     </article>
   );
 }

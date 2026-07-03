@@ -489,3 +489,61 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+.ride-card-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ride-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-section {
+  margin-top: 40px;
+}
+
+.admin-section h2 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+}
+
+.admin-rides-list {
+  display: grid;
+  gap: 12px;
+}
+
+.empty-state {
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.admin-approve-button,
+.admin-reject-button {
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-approve-button {
+  background-color: var(--color-primary);
+  color: #052e16;
+}
+
+.admin-reject-button {
+  background-color: var(--color-danger);
+  color: #450a0a;
+}
+
+@media (max-width: 760px) {
+  .ride-card-side {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
