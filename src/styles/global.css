@@ -122,3 +122,80 @@ a {
   color: #082f49;
   box-shadow: 4px 4px 0 #0369a1;
 }
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 32px;
+  border-bottom: 3px solid var(--color-primary);
+  background-color: rgba(17, 24, 39, 0.92);
+}
+
+.app-header strong {
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.app-nav a {
+  padding: 8px 10px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.app-nav a:hover,
+.app-nav a.active {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.page-shell {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.page-card {
+  padding: 40px;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.96), rgba(17, 24, 39, 0.96));
+  box-shadow: var(--shadow-card);
+}
+
+.page-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+  text-transform: uppercase;
+}
+
+.page-card p {
+  max-width: 640px;
+  margin: 20px 0 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
