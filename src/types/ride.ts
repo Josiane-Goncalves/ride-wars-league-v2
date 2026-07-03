@@ -19,10 +19,13 @@ export type Ride = {
   createdAt: string;
 };
 
+export type BadgeRule = 'first_ride' | 'distance_single_ride' | 'elevation_single_ride';
+
 export type Badge = {
   id: string;
   name: string;
   description: string;
   icon: string;
-  requiredDistanceKm: number;
+  rule: BadgeRule;
+  requiredValue: number;
 };
