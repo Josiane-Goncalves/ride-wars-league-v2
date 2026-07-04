@@ -655,3 +655,120 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+.home-page {
+  display: grid;
+  gap: 32px;
+}
+
+.home-hero h1 {
+  max-width: 760px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 24px;
+  border: 2px solid var(--color-surface-light);
+  border-radius: var(--radius-md);
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
+.feature-card h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.home-section {
+  padding: 40px;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.96), rgba(17, 24, 39, 0.96));
+  box-shadow: var(--shadow-card);
+}
+
+.home-section h2 {
+  margin: 18px 0 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.step-card {
+  padding: 22px;
+  border: 2px solid var(--color-surface-light);
+  border-radius: var(--radius-md);
+  background-color: rgba(17, 24, 39, 0.75);
+}
+
+.step-card strong {
+  color: var(--color-warning);
+  font-size: 1.4rem;
+}
+
+.step-card h3 {
+  margin: 14px 0 0;
+  font-size: 1.1rem;
+}
+
+.step-card p {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  background-color: var(--color-primary);
+  color: #052e16;
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--color-primary-dark);
+}
+
+.app-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-primary-dark);
+}
+
+.app-button-secondary {
+  background-color: var(--color-secondary);
+  color: #082f49;
+  box-shadow: 4px 4px 0 #0369a1;
+}
+
+.app-button-secondary:hover {
+  box-shadow: 2px 2px 0 #0369a1;
+}
+
+@media (max-width: 760px) {
+  .home-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-section {
+    padding: 28px;
+  }
+}
